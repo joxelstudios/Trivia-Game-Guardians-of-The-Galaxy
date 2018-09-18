@@ -59,6 +59,10 @@ $('.startButton').on('click', function () {
 })
 function nextQuestion() {
     questionNum++;
+    if (questionNum === gameinfo.questions.length) {
+        stopTimer();
+        endGame();
+    }
     $('#questionText').text(gameinfo.questions[questionNum]);
     $('#answerA').text(gameinfo.answer1[questionNum]);
     $('#answerB').text(gameinfo.answer2[questionNum]);
