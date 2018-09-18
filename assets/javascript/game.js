@@ -5,11 +5,11 @@ var gameinfo = {
     answer3: ['"Moonage Daydream" by David Bowie', 'The Milano', '6 billion', 'Ving Rhames'],
     answer4: ['"Escape" (The Piña Colada Song) by Rupert Holmes', 'The Morano', '3 billion', 'Keith David'],
 
-    correctAnswers: [2, 1, 0, 2],
+    correctAnswers: [1, 2, 1, 1],
 }
 var questionNum = 0
 var interval;
-var userGuess = parseInt($(this).attr("value"));
+var userGuess;
 var correct = 0;
 var incorrect = 0;
 
@@ -65,13 +65,17 @@ function nextQuestion(){
 }
 
 $('.btn-light').on('click', function () {
+    userGuess = parseInt($(this).attr("value"));
+    console.log(userGuess);
     if (gameinfo.correctAnswers[questionNum] === userGuess) {
+        alert('Correct!')
         correct++;
         questionNum++;
         stopTimer();
         nextQuestion();
         
     } else {
+        alert('Incorrect!')
         incorrect--;
         questionNum++;
         stopTimer();
