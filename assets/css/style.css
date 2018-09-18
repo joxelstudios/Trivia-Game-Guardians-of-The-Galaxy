@@ -1,0 +1,45 @@
+body{
+    background-image: url(../images/bg.jpg);
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+.hidden{
+    display: none;
+}
+.mainContainer {
+    margin-top: 200px;
+    background: none;
+    
+}
+.jumbotron{
+    background: none;   
+   
+}
+.startScreen{
+    padding: 20px;
+}
+.timerDiv{
+    background: rgba(0, 0, 0, 0.7);
+    color: aliceblue;
+    padding: 5px;
+
+}
+.gameTitle{
+    background: rgba(0, 0, 0, 0.7);
+    color: aliceblue;
+    
+    
+}
+.questionText{
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: aliceblue;
+    
+    
+}
+.answer{
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.7);
+    color: aliceblue;
+}
