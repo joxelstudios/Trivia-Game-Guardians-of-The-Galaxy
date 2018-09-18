@@ -1,5 +1,5 @@
 var gameinfo = {
-    questions: ["1.Which song on the film's soundtrack was not played in the movie?", "2. What is the name of Peter Quill's ship?", "3. How many units did The Collector offer for the Orb?", "4. Who voiced Thanos?"],
+    questions: ["1. Which song on the film's soundtrack was not played in the movie?", "2. What is the name of Peter Quill's ship?", "3. How many units did The Collector offer for the Orb?", "4. Who voiced Thanos?"],
     answer1: ['"Cherry Bomb" by The Runaways', 'The Dark Aster', '3 million', 'James Spader'],
     answer2: ['"Spirit in the Sky" by Norman Greenbaum', 'The M-Ship', '4 billion', 'Josh Brolin'],
     answer3: ['"Moonage Daydream" by David Bowie', 'The Milano', '6 billion', 'Ving Rhames'],
@@ -23,7 +23,9 @@ function startTimer() {
             // Display alert
             alert("Times Up!")
             stopTimer();
+            nextQuestion();
         }
+        
     }, 1000);
 }
 
@@ -56,6 +58,7 @@ $('.startButton').on('click', function () {
 
 })
 function nextQuestion() {
+    questionNum++;
     $('#questionText').text(gameinfo.questions[questionNum]);
     $('#answerA').text(gameinfo.answer1[questionNum]);
     $('#answerB').text(gameinfo.answer2[questionNum]);
@@ -83,7 +86,7 @@ $('.btn-light').on('click', function () {
     if (gameinfo.correctAnswers[questionNum] === userGuess) {
         alert('Correct!')
         correct++;
-        questionNum++;
+        
         stopTimer();
         nextQuestion();
         if (questionNum === gameinfo.questions.length) {
@@ -93,7 +96,7 @@ $('.btn-light').on('click', function () {
     } else {
         alert('Incorrect!')
         incorrect--;
-        questionNum++;
+        
         stopTimer();
         nextQuestion();
         if (questionNum === gameinfo.questions.length) {
