@@ -55,13 +55,26 @@ $('.startButton').on('click', function () {
 
 
 })
-function nextQuestion(){
+function nextQuestion() {
     $('#questionText').text(gameinfo.questions[questionNum]);
     $('#answerA').text(gameinfo.answer1[questionNum]);
     $('#answerB').text(gameinfo.answer2[questionNum]);
     $('#answerC').text(gameinfo.answer3[questionNum]);
     $('#answerD').text(gameinfo.answer4[questionNum]);
     startTimer();
+}
+
+function endGame() {
+    $('#questionText').text('Game Over!');
+    $('#answerA').addClass('hidden');
+    $('#answerB').addClass('hidden');
+    $('#answerC').addClass('hidden');
+    $('#answerD').addClass('hidden');
+    $('.timer1').addClass('hidden');
+    $('.numCorrect').removeClass('hidden');
+    $('#numCorrect').text(correct);
+    $('.numIncorrect').removeClass('hidden');
+    $('#numIncorrect').text(incorrect);
 }
 
 $('.btn-light').on('click', function () {
@@ -73,14 +86,21 @@ $('.btn-light').on('click', function () {
         questionNum++;
         stopTimer();
         nextQuestion();
-        
+        if (questionNum === gameinfo.questions.length) {
+            stopTimer();
+            endGame();
+        }
     } else {
         alert('Incorrect!')
         incorrect--;
         questionNum++;
         stopTimer();
         nextQuestion();
-       
-
+        if (questionNum === gameinfo.questions.length) {
+            endGame();
+        }
     }
+
+
+
 })
