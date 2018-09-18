@@ -77,7 +77,7 @@ function endGame() {
     $('#answerB').addClass('hidden');
     $('#answerC').addClass('hidden');
     $('#answerD').addClass('hidden');
-    $('.timer1').addClass('hidden');
+    $('.timer').addClass('hidden');
     $('.numCorrect').removeClass('hidden');
     $('#numCorrect').text(correct);
     $('.numIncorrect').removeClass('hidden');
